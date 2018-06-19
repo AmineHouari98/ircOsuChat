@@ -21,10 +21,10 @@ Page {
         id: flickable
         anchors.fill: parent
 
-    Image {
-anchors.fill: parent
-        source: "qrc:/icons/page.png"
-    }
+        Image {
+            anchors.fill: parent
+            source: "qrc:/icons/page.png"
+        }
         ColumnLayout {
             anchors.fill: parent
             spacing: 15
@@ -125,10 +125,12 @@ anchors.fill: parent
                 myColor: "white"
                 onClicked: {
 
+                    if(loginUsername.length>0 && loginPassword.length>0 ){
+                        irc.onConnectedClicked(loginUsername.text,loginPassword.text)
+                        dataParser.username=loginUsername.text
+                        stackView.replace("qrc:/MainPage.qml")
 
-                    irc.onConnectedClicked(loginUsername.text,loginPassword.text)
-                    dataParser.username=loginUsername.text
-                    stackView.replace("qrc:/MainPage.qml")
+                    }else banner.displayMessageColor("The Username or Password Field Is Empty","darkred")
 
                 }
             }
@@ -146,5 +148,11 @@ anchors.fill: parent
 
 
         }
+
+    }
+
+    InfoBanner{
+        id:banner
+
     }
 }
