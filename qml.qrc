@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>icons/Osu!Logo.png</file>
+        <file>CButton.qml</file>
+        <file>CIcon.qml</file>
+        <file>LogInPage.qml</file>
+        <file>MainPage.qml</file>
+        <file>icons/page.png</file>
+        <file>sounds/msg.wav</file>
+        <file>InfoBanner.qml</file>
+        <file>InfoBannerComponent.qml</file>
+    </qresource>
+</RCC>
