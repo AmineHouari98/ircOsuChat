@@ -40,20 +40,20 @@ HEADERS += \
 
 
 
-# set exe to bin directory and others file to tmp
-OBJECTS_DIR = tmp
-MOC_DIR = tmp
-DESTDIR = bin
+## set exe to bin directory and others file to tmp
+#OBJECTS_DIR = tmp
+#MOC_DIR = tmp
+#DESTDIR = bin
 
-# my auto deploy on release mode
-CONFIG(release, debug|release ) {
-    # on release mode
-        win32{
-            TARGET_EXT = .exe
-            DEPLOY_COMMAND = windeployqt
-            DEPLOY_TARGET = $$shell_quote($$shell_path($${OUT_PWD}/$${DESTDIR}/$${TARGET}$${TARGET_EXT}))
+## my auto deploy on release mode
+#CONFIG(release, debug|release ) {
+#    # on release mode
+#        win32{
+#            TARGET_EXT = .exe
+#            DEPLOY_COMMAND = windeployqt
+#            DEPLOY_TARGET = $$shell_quote($$shell_path($${OUT_PWD}/$${DESTDIR}/$${TARGET}$${TARGET_EXT}))
 
-        #warning($${DEPLOY_COMMAND} $${DEPLOY_TARGET})
-                QMAKE_POST_LINK = $${DEPLOY_COMMAND} $${DEPLOY_TARGET}
-        }
-}
+#        #warning($${DEPLOY_COMMAND} $${DEPLOY_TARGET})
+#                QMAKE_POST_LINK = $${DEPLOY_COMMAND} $${DEPLOY_TARGET}
+#        }
+#}

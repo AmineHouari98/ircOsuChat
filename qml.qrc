@@ -10,5 +10,6 @@
         <file>sounds/msg.wav</file>
         <file>InfoBanner.qml</file>
         <file>InfoBannerComponent.qml</file>
+        <file>WebAPI.js</file>
     </qresource>
 </RCC>

@@ -4,12 +4,15 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
 import QtQuick.Layouts 1.3
 import QtMultimedia 5.9
+import "qrc:///WebAPI.js" as WebAPI
 
 
 Page {
+    id:root
 
     property string currentUser: ""
     property string  userConnected: dataParser.username
+    property string userConnectedId: ""
     readonly property bool inPortrait: window.width < window.height
 
 
@@ -22,7 +25,7 @@ Page {
         onRejected: console.log("Cancel clicked")
 
         Label {
-            text: "are you sure to delete the conversation with "
+            text: "are you sure to delete the conversation with " + currentUser
         }
     }
     ToolBar {
@@ -67,7 +70,7 @@ Page {
                 Image {
                     id: logo
                     width: parent.width*0.66
-                    source: "qrc:///icons/Osu!Logo.png"
+                    source: "https://a.ppy.sh/"+userConnectedId
                     fillMode: implicitWidth > width ? Image.PreserveAspectFit : Image.Pad
                     anchors.centerIn: parent
                 }
@@ -140,14 +143,14 @@ Page {
                     RowLayout {
                         width: parent.width
 
-//                        Button {
-//                            id: deleteButtonId
-//                            text: qsTr("x")
-//                            height: 50
-//                            onClicked: {
-//                                dialog.open()
-//                            }
-//                        }
+                        //                        Button {
+                        //                            id: deleteButtonId
+                        //                            text: qsTr("x")
+                        //                            height: 50
+                        //                            onClicked: {
+                        //                                dialog.open()
+                        //                            }
+                        //                        }
 
                         Button {
                             id: friendId
@@ -353,7 +356,10 @@ Page {
 
 
         }
-
+        onNewUser:
+        {
+            usersModel.append({user:uname})
+        }
     }
     InfoBanner{
         id:messages
@@ -362,6 +368,7 @@ Page {
     }
     Component.onCompleted: {
         dataParser.show()
+        WebAPI.get_Method("https://osu.ppy.sh/api/get_user?u="+dataParser.username+"&k=2211058260cfc8af0fd3eec5734c0721118b5490")
 
     }
 

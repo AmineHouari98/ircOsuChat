@@ -17,11 +17,13 @@ public:
 signals:
     void msgToQml(QString datetime,QString user,QString message);
     void reply(QString,bool);
-
+    void newUser(QString uname,bool connected);
 public slots:
     void onConnectedClicked(QString,QString);
     void send(QString,QString);
     void checkConnected(QString);
+    void checkNewUser(QString);
+
 
 
 

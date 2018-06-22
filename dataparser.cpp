@@ -21,8 +21,6 @@ void dataParser::show()
         buffList = buff.split("///");
 
         emit newUser(buffList[1],false);
-        QThread::msleep(400);
-        qDebug()<<"dataparser :"+buffList[1];
         //emit checkStatus(buffList[1]);
     }
 

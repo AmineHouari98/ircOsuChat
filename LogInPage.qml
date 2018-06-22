@@ -110,7 +110,7 @@ Page {
                     }
                 }
             }
-
+            //TODO: add condition if wrong password
             Item {
                 height: 20
             }
@@ -139,11 +139,11 @@ Page {
                 height: 50
                 Layout.preferredWidth: loginPage.width - 20
                 Layout.alignment: Qt.AlignHCenter
-                name: "Sign Up"
+                name: "Get IRC Password"
                 baseColor: "transparent"
                 borderColor: mainAppColor
                 myColor: Material.color(Material.Pink,Material.Shade200)
-                onClicked: Qt.openUrlExternally("https://osu.ppy.sh/p/irc") //registerClicked()
+                onClicked: Qt.openUrlExternally("https://osu.ppy.sh/p/irc")
             }
 
 
